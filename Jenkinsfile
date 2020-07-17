@@ -5,12 +5,12 @@ pipeline {
             parallel {
                 stage('Maven build') {
                     steps {
-                        sh "mvn clean package"    
+                        sh "sudo mvn clean package"    
                     }
                 }
                 stage('Checkstyle') {
                     steps {
-                        sh "mvn checkstyle:check"
+                        sh "sudo mvn checkstyle:check"
                         recordIssues(tools: [checkStyle(reportEncoding: 'UTF-8')])
                     }
                 }
